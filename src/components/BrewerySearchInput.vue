@@ -43,20 +43,39 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, ref } from '@vue/composition-api';
 import { Autocomplete } from '@/types';
 import { fetchAutocompleteItems } from '@/api';
 
 type Data = {
-  query: string;
   autocompleteItems: Autocomplete[];
 };
 
-export default Vue.extend({
+export default defineComponent({
   data(): Data {
     return {
-      query: '',
       autocompleteItems: []
+    };
+  },
+
+  setup(props, { emit }) {
+    const query = ref<string>('');
+
+    function selectAutocompleteItem(item: Autocomplete) {
+      emit('search', item.name);
+      query.value = '';
+    }
+
+    async function onSubmit() {
+      emit('search', query.value);
+      query.value = '';
+    }
+
+    return {
+      query,
+
+      selectAutocompleteItem,
+      onSubmit
     };
   },
 
@@ -69,18 +88,6 @@ export default Vue.extend({
   computed: {
     shouldShowAutocomplete(): boolean {
       return this.autocompleteItems.length > 0;
-    }
-  },
-
-  methods: {
-    async onSubmit() {
-      this.$emit('search', this.query);
-      this.query = '';
-    },
-
-    selectAutocompleteItem(item: Autocomplete) {
-      this.$emit('search', item.name);
-      this.query = '';
     }
   }
 });
