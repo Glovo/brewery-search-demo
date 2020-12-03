@@ -43,23 +43,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api';
+import {
+  computed,
+  defineComponent,
+  ref,
+  watchEffect
+} from '@vue/composition-api';
 import { Autocomplete } from '@/types';
 import { fetchAutocompleteItems } from '@/api';
 
-type Data = {
-  autocompleteItems: Autocomplete[];
-};
-
 export default defineComponent({
-  data(): Data {
-    return {
-      autocompleteItems: []
-    };
-  },
-
   setup(props, { emit }) {
     const query = ref<string>('');
+    const autocompleteItems = ref<Autocomplete[]>([]);
+
+    const shouldShowAutocomplete = computed(
+      () => autocompleteItems.value.length > 0
+    );
+
+    watchEffect(async () => {
+      autocompleteItems.value = await fetchAutocompleteItems(query.value);
+    });
 
     function selectAutocompleteItem(item: Autocomplete) {
       emit('search', item.name);
@@ -73,22 +77,12 @@ export default defineComponent({
 
     return {
       query,
+      autocompleteItems,
+      shouldShowAutocomplete,
 
       selectAutocompleteItem,
       onSubmit
     };
-  },
-
-  watch: {
-    async query(newQuery: string) {
-      this.autocompleteItems = await fetchAutocompleteItems(newQuery);
-    }
-  },
-
-  computed: {
-    shouldShowAutocomplete(): boolean {
-      return this.autocompleteItems.length > 0;
-    }
   }
 });
 </script>
