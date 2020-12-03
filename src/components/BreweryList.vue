@@ -1,7 +1,10 @@
 <template>
   <div>
-    <p class="mt-6 text-sm font-semibold text-gray-700 uppercase">
-      Found {{ breweriesCount }} breweries
+    <p
+      v-if="breweriesCount"
+      class="mt-6 text-sm font-semibold text-gray-700 uppercase"
+    >
+      {{ breweriesCount }} breweries
     </p>
     <ul
       class="grid grid-cols-1 gap-5 mt-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3"

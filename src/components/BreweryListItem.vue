@@ -3,12 +3,9 @@
     class="flex col-span-1 overflow-hidden text-left duration-150 ease-in-out transform rounded-md shadow-md hover:scale-105"
   >
     <div class="flex flex-col flex-1 px-4 py-3 space-y-1 text-sm bg-white">
-      <a
-        :href="brewery.website_url"
-        class="text-lg font-semibold transition text-glovo-green hover:text-glovo-yellow"
-      >
+      <h2 class="text-lg font-semibold transition text-glovo-green">
         {{ brewery.name }}
-      </a>
+      </h2>
       <div class="text-gray-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +40,29 @@
         </svg>
         {{ brewery.phone }}
       </div>
+      <a
+        :href="brewery.website_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        v-if="brewery.website_url"
+        class="text-gray-500 hover:text-glovo-green"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          class="inline w-4 h-4"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+          />
+        </svg>
+        {{ brewery.website_url }}
+      </a>
     </div>
   </li>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <form class="flex max-w-xl mx-auto mt-8 space-x-6" @submit.prevent="onSubmit">
+  <form class="flex max-w-md mx-auto mt-8 space-x-6" @submit.prevent="onSubmit">
     <input
       v-model="query"
       type="text"
