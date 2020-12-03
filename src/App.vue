@@ -9,7 +9,7 @@
 
       <svg
         v-if="isSearching"
-        class="inline-block w-20 h-20 mt-12 animate-bounce text-glovo-green"
+        class="inline-block w-16 h-16 mt-24 animate-bounce text-glovo-green"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -28,36 +28,33 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent, onMounted, ref } from '@vue/composition-api';
 import BreweryList from './components/BreweryList.vue';
 import BrewerySearchInput from './components/BrewerySearchInput.vue';
-
 import { searchBreweries, fetchBreweries } from './api';
 import { Brewery } from './types/brewery';
 
-type Data = {
-  breweries: Brewery[];
-  isSearching: boolean;
-};
-
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
   components: {
     BrewerySearchInput,
     BreweryList
   },
 
-  data(): Data {
-    return {
-      breweries: [],
-      isSearching: false
-    };
-  },
+  setup() {
+    const breweries = ref<Brewery[]>([]);
+    const isSearching = ref(false);
 
-  async mounted() {
-    this.isSearching = true;
-    this.breweries = await fetchBreweries();
-    this.isSearching = false;
+    onMounted(async () => {
+      isSearching.value = true;
+      breweries.value = await fetchBreweries();
+      isSearching.value = false;
+    });
+
+    return {
+      isSearching,
+      breweries
+    };
   },
 
   methods: {
