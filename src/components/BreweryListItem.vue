@@ -69,12 +69,12 @@
 
 <script lang="ts">
 import { Brewery } from '@/types';
-import Vue, { PropType } from 'vue';
+import { defineComponent } from '@vue/composition-api';
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     brewery: {
-      type: Object as PropType<Brewery>,
+      type: Object as () => Brewery,
       required: true
     }
   }
