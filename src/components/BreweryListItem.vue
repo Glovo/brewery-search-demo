@@ -68,7 +68,7 @@
 </template>
 
 <script lang="ts">
-import { Brewery } from '@/types/brewery';
+import { Brewery } from '@/types';
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
