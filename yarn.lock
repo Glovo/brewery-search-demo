@@ -9552,10 +9552,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@2.0.1-compat:
-  version "2.0.1-compat"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.0.1-compat.tgz#2f57e9e4e848587bfc67ed92ee0de0882c3d0673"
-  integrity sha512-6lRJGPW7NlM7cemvGeuyrzb/Doj1hScnCMmAVNt8iTmMhIy4n6rUo84RC8m65+AAyOpSybS4b06lb4GI6Rw6Kw==
+"tailwindcss@npm:@tailwindcss/postcss7-compat":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/postcss7-compat/-/postcss7-compat-2.0.1.tgz#901b02546e537e85beddbc13443226f46929efc8"
+  integrity sha512-SdWGioSKNhCIuoX2gCYhfs9HhWnOf1dvIed5G2i/lbqReGA27LG5KpH4glDunHWevWAY7h/WISZblE6xDCC/UA==
   dependencies:
     "@fullhuman/postcss-purgecss" "^3.0.0"
     autoprefixer "^9"
@@ -10175,15 +10175,6 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
-
-vue-cli-plugin-tailwind@~2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-cli-plugin-tailwind/-/vue-cli-plugin-tailwind-2.0.1.tgz#1e6b04dc4fed75b1e0f4944c722558bb7b746667"
-  integrity sha512-xgxr85EfrYDuRbN2mxJ+p1MyRQQb5oJzlq4vDmtRtL2qmnc2+GwaNGVjzwwxSnLmx5h8N+yw0mMz7GlzEGGYmg==
-  dependencies:
-    autoprefixer "^9"
-    postcss "^7"
-    tailwindcss "2.0.1-compat"
 
 vue-eslint-parser@^7.0.0:
   version "7.2.0"

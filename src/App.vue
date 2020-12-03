@@ -1,29 +1,18 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="min-h-full px-4 py-10 text-center text-gray-900 bg-glovo-yellow">
+    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+      Glovo Brewery Search
+    </h1>
+
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import Vue from 'vue';
 
 export default Vue.extend({
-  name: "App",
-  components: {
-    HelloWorld
-  }
+  name: 'App',
+  components: {}
 });
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: {
     enabled: process.env.NODE_ENV === 'production',
@@ -5,14 +8,12 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {}
-  },
-  variants: {
     extend: {
       fontFamily: {
         sans: ['Montserrat']
       },
       colors: {
+        gray: colors.trueGray,
         glovo: {
           yellow: '#FFC244',
           green: '#00A082',
@@ -20,6 +21,9 @@ module.exports = {
         }
       }
     }
+  },
+  variants: {
+    extend: {}
   },
   plugins: []
 };
