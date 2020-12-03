@@ -1,5 +1,5 @@
 <template>
-  <form class="flex mt-8 space-x-6" @submit.prevent="onSubmit">
+  <div class="flex mt-8 space-x-6">
     <div class="flex flex-col">
       <input
         v-model="query"
@@ -36,10 +36,11 @@
     <button
       type="submit"
       class="inline-flex items-center px-4 py-2 text-sm font-medium text-white duration-150 transform border border-transparent rounded-md shadow-sm hover:scale-105 bg-glovo-green focus:outline-none"
+      @click="onSearch"
     >
       Search
     </button>
-  </form>
+  </div>
 </template>
 
 <script lang="ts">
@@ -62,7 +63,9 @@ export default Vue.extend({
 
   watch: {
     async query(newQuery: string) {
-      this.autocompleteItems = await fetchAutocompleteItems(newQuery);
+      this.autocompleteItems = newQuery
+        ? await fetchAutocompleteItems(newQuery)
+        : [];
     }
   },
 
@@ -73,7 +76,7 @@ export default Vue.extend({
   },
 
   methods: {
-    async onSubmit() {
+    async onSearch() {
       this.$emit('search', this.query);
       this.query = '';
     },
