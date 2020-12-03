@@ -19,26 +19,26 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
 import { Brewery } from '@/types';
+import { defineComponent, computed } from '@vue/composition-api';
 import BreweryListItem from './BreweryListItem.vue';
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     BreweryListItem
   },
 
   props: {
     breweries: {
-      type: Array as PropType<Brewery[]>,
+      type: Array as () => Brewery[],
       default: []
     }
   },
 
-  computed: {
-    breweriesCount(): number {
-      return this.breweries.length;
-    }
+  setup(props) {
+    const breweriesCount = computed(() => props.breweries.length);
+
+    return { breweriesCount };
   }
 });
 </script>
