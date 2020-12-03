@@ -1,10 +1,10 @@
 <template>
   <div class="min-h-full px-4 py-10 text-center text-gray-900 bg-glovo-yellow">
     <h1 class="text-2xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-      <span class="text-glovo-green">Glovo</span> Brewery Search
+      Brewery Search 🍻
     </h1>
 
-    <main class="max-w-5xl mx-auto">
+    <main class="flex flex-col items-center max-w-5xl mx-auto">
       <brewery-search-input @search="onSearch" />
 
       <svg
