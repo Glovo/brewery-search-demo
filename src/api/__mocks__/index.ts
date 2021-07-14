@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 const mockBreweries = [
   {
     address_2: null,
