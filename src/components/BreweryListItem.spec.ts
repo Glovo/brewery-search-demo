@@ -24,21 +24,13 @@ const mockBrewery: Brewery = {
 
 describe('BreweryListItem', () => {
   it('should render a brewery card', () => {
-    const wrapper = mount(BreweryListItem, {
-      propsData: {
-        brewery: mockBrewery
-      }
-    });
+    const wrapper = makeWrapper();
 
     expect(wrapper.exists()).toBeTruthy();
   });
 
   it('should display the brewery name', () => {
-    const wrapper = mount(BreweryListItem, {
-      propsData: {
-        brewery: mockBrewery
-      }
-    });
+    const wrapper = makeWrapper();
 
     const heading = wrapper.find('[data-qa="brewery-name"]');
 
@@ -47,11 +39,7 @@ describe('BreweryListItem', () => {
   });
 
   it('should display an icon next to the address', () => {
-    const wrapper = mount(BreweryListItem, {
-      propsData: {
-        brewery: mockBrewery
-      }
-    });
+    const wrapper = makeWrapper();
 
     const address = wrapper.find('[data-qa="brewery-address"]');
     const icon = address.find('svg');
@@ -59,3 +47,7 @@ describe('BreweryListItem', () => {
     expect(icon.exists()).toBeTruthy();
   });
 });
+
+const makeWrapper = (
+  propsData: { brewery: Brewery } = { brewery: mockBrewery }
+) => mount(BreweryListItem, { propsData });
