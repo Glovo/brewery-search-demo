@@ -22,6 +22,10 @@ const mockBrewery: Brewery = {
   website_url: 'http://www.dimensionalbrewing.com'
 };
 
+const makeWrapper = (
+  propsData: { brewery: Brewery } = { brewery: mockBrewery }
+) => mount(BreweryListItem, { propsData });
+
 describe('BreweryListItem', () => {
   it('should render a brewery card', () => {
     const wrapper = makeWrapper();
@@ -34,7 +38,6 @@ describe('BreweryListItem', () => {
 
     const heading = wrapper.find('[data-qa="brewery-name"]');
 
-    console.log(heading.html());
     expect(heading.text()).toBe('Dimensional Brewing Co.');
   });
 
@@ -68,7 +71,3 @@ describe('BreweryListItem', () => {
     expect(phoneNumber.exists()).toBeTruthy();
   });
 });
-
-const makeWrapper = (
-  propsData: { brewery: Brewery } = { brewery: mockBrewery }
-) => mount(BreweryListItem, { propsData });
