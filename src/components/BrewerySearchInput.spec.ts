@@ -79,5 +79,21 @@ describe('BrewerySearchInput', () => {
         expect((input.element as HTMLInputElement).value).toBe('');
       });
     });
+
+    describe('and pressing the search button', () => {
+      beforeEach(async () => {
+        await wrapper.find('[data-qa="submit-button"').trigger('click');
+      });
+
+      it('should notify the parent component', () => {
+        expect(wrapper.emitted().search).toEqual([['San']]);
+      });
+
+      it('should reset the search field', () => {
+        const input = wrapper.find('[data-qa="search-input"]');
+
+        expect((input.element as HTMLInputElement).value).toBe('');
+      });
+    });
   });
 });
