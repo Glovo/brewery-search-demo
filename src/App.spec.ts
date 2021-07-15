@@ -7,8 +7,6 @@ describe('App', () => {
   it('should render the whole app', () => {
     const wrapper = mount(App);
 
-    console.log(wrapper.html());
-
     expect(wrapper.exists()).toBeTruthy();
   });
 });
