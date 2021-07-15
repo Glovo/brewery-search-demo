@@ -46,6 +46,27 @@ describe('BreweryListItem', () => {
 
     expect(icon.exists()).toBeTruthy();
   });
+
+  it('should not display the phone number if it is null', () => {
+    const wrapper = makeWrapper();
+
+    const phoneNumber = wrapper.find('[data-qa="brewery-phone"');
+
+    expect(phoneNumber.exists()).toBeFalsy();
+  });
+
+  it('should display the phone number if it has', () => {
+    const breweryWithPhone = {
+      ...mockBrewery,
+      phone: '1234'
+    };
+
+    const wrapper = makeWrapper({ brewery: breweryWithPhone });
+
+    const phoneNumber = wrapper.find('[data-qa="brewery-phone"');
+
+    expect(phoneNumber.exists()).toBeTruthy();
+  });
 });
 
 const makeWrapper = (

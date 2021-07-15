@@ -27,7 +27,7 @@
         </svg>
         {{ brewery.country }}, {{ brewery.state }}, {{ brewery.city }}
       </div>
-      <div v-if="brewery.phone" class="text-gray-500">
+      <div v-if="brewery.phone" class="text-gray-500" data-qa="brewery-phone">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
