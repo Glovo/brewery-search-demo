@@ -8,11 +8,13 @@
         id="search"
         class="relative block border-gray-300 rounded-md shadow-sm w-72 focus:ring-glovo-green focus:border-glovo-green sm:text-sm"
         placeholder="San Diego"
+        data-qa="search-input"
       />
 
       <div
         v-if="shouldShowAutocomplete"
         class="absolute z-50 mt-12 origin-bottom bg-white rounded-md shadow-lg w-72 ring-1 ring-black ring-opacity-5"
+        data-qa="autocomplete-container"
       >
         <div
           class="py-1"
@@ -57,7 +59,7 @@ type Data = {
 export default Vue.extend({
   data(): Data {
     return {
-      query: 'asd',
+      query: '',
       autocompleteItems: []
     };
   },
