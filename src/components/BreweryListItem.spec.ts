@@ -24,7 +24,11 @@ const mockBrewery = {
 
 describe('BreweryListItem', () => {
   it('should render a brewery card', () => {
-    const wrapper = mount(BreweryListItem);
+    const wrapper = mount(BreweryListItem, {
+      propsData: {
+        brewery: mockBrewery
+      }
+    });
 
     expect(wrapper.exists()).toBeTruthy();
   });
