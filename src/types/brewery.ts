@@ -2,7 +2,7 @@ export interface Brewery {
   id: number;
   name: string;
   brewery_type: string;
-  street: string;
+  street: string | null;
   address_2: string | null;
   address_3: string | null;
   city: string;
@@ -10,8 +10,8 @@ export interface Brewery {
   state: string;
   postal_code: string;
   country: string;
-  longitude: string;
-  latitude: string;
+  longitude: string | null;
+  latitude: string | null;
   phone: string | null;
   website_url: string;
   updated_at: string;

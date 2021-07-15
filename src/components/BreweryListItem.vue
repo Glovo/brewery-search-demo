@@ -3,10 +3,14 @@
     class="flex col-span-1 overflow-hidden text-left duration-150 ease-in-out transform rounded-md shadow-md hover:scale-105"
   >
     <div class="flex flex-col flex-1 px-4 py-3 space-y-1 text-sm bg-white">
-      <h2 class="text-lg font-semibold transition text-glovo-green">
+      <h2
+        id="brewery-name"
+        class="text-lg font-semibold transition text-glovo-green"
+        data-qa="brewery-name"
+      >
         {{ brewery.name }}
       </h2>
-      <div class="text-gray-500">
+      <div class="text-gray-500" data-qa="brewery-address">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="inline w-4 h-4"
