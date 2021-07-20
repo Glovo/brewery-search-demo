@@ -3,5 +3,5 @@ export enum Characters {
   JON_SNOW = 'Jon Snow',
   SANSA_STARK = 'Jon Snow',
   JAIME_LANNISTER = 'Jaime Lannister',
-  TYRION_LANNISTER = 'Tyrion Lannister',
+  TYRION_LANNISTER = 'Tyrion Lannister'
 }

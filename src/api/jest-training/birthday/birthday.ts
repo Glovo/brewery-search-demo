@@ -15,7 +15,8 @@ export default class Birthday {
   isMyBirthday(): boolean {
     let result = false;
     const birthday = this.getBirthday();
-    const today = new Date();
+    const today = new Date(Date.now());
+
     if (
       today.getDate() === birthday.getDate() &&
       today.getMonth() === birthday.getMonth()
@@ -23,6 +24,7 @@ export default class Birthday {
       this.logger('is a birthday');
       result = true;
     }
+
     return result;
   }
 
