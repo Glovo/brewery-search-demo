@@ -1,4 +1,4 @@
-const mockBreweries = [
+export const mockBreweries = [
   {
     address_2: null,
     address_3: null,
