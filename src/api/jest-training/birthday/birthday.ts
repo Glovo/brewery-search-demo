@@ -20,6 +20,7 @@ export default class Birthday {
       today.getDate() === birthday.getDate() &&
       today.getMonth() === birthday.getMonth()
     ) {
+      this.logger('is a birthday');
       result = true;
     }
     return result;
