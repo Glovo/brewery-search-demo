@@ -5,16 +5,16 @@ export default class Birthday {
     }
   };
 
-  sendEmailWhenIsMyBirthday(name: string) {
-    if (this.isMyBirthday(name)) {
+  sendEmailWhenIsMyBirthday() {
+    if (this.isMyBirthday()) {
       this.emailServer.sendEmail();
       this.logger('EmailSent');
     }
   }
 
-  isMyBirthday(name: string): boolean {
+  isMyBirthday(): boolean {
     let result = false;
-    const birthday = this.getBirthday(name);
+    const birthday = this.getBirthday();
     const today = new Date();
     if (
       today.getDate() === birthday.getDate() &&
@@ -26,7 +26,7 @@ export default class Birthday {
     return result;
   }
 
-  getBirthday(name: string) {
+  getBirthday() {
     return this.randomDate();
   }
 
