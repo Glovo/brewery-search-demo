@@ -13,14 +13,14 @@ describe('birthday.ts', () => {
   describe('test sendEmailWhenIsMyBirthday', () => {
     it('should call logger', () => {
       const spy = jest.spyOn(birthday, 'logger')
-      jest.spyOn(birthday, 'isMyBirthday').mockReturnValue(true);
+      birthday.isMyBirthday = jest.fn().mockReturnValue(true);
       birthday.sendEmailWhenIsMyBirthday('test')
       expect(spy).toHaveBeenCalled()
     })
 
     it('should not call logger', () => {
       const spy = jest.spyOn(birthday, 'logger')
-      jest.spyOn(birthday, 'isMyBirthday').mockReturnValue(false);
+      birthday.isMyBirthday = jest.fn().mockReturnValue(false);
       birthday.sendEmailWhenIsMyBirthday('test')
       expect(spy).not.toHaveBeenCalled()
     })
