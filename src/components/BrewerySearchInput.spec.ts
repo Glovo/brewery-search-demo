@@ -13,5 +13,9 @@ describe('BrewerySearchInput', () => {
     it('should emit `search` event with the clicked auto-complete item name as parameter', () => {});
   });
 
-  it('should emit the `search` event with current search input when the form is submitted', () => {});
+  describe('when form is submitted', () => {
+    it('should emit the `search` event with current search input when the form is submitted', () => {});
+
+    it('should clear the search input when the form is submitted', () => {});
+  })
 });
