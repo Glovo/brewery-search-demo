@@ -1,6 +1,6 @@
 <template>
   <div class="flex mt-8 space-x-6">
-    <div class="flex flex-col">
+    <form @submit.prevent="onSearch" class="flex flex-col">
       <input
         v-model="query"
         type="text"
@@ -25,18 +25,18 @@
             :key="item.id"
             class="block w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-glovo-green hover:text-gray-100"
             role="menuitem"
+            type="button"
             @click="selectAutocompleteItem(item)"
           >
             {{ item.name }}
           </button>
         </div>
       </div>
-    </div>
+    </form>
 
     <button
       type="submit"
       class="inline-flex items-center px-4 py-2 text-sm font-medium text-white duration-150 transform border border-transparent rounded-md shadow-sm hover:scale-105 bg-glovo-green focus:outline-none"
-      @click="onSearch"
     >
       Search
     </button>
@@ -63,9 +63,13 @@ export default Vue.extend({
 
   watch: {
     async query(newQuery: string) {
-      this.autocompleteItems = newQuery
-        ? await fetchAutocompleteItems(newQuery)
-        : [];
+      try {
+        this.autocompleteItems = newQuery
+          ? await fetchAutocompleteItems(newQuery)
+          : [];
+      } catch (e) {
+        this.onError(e);
+      }
     }
   },
 
@@ -76,7 +80,7 @@ export default Vue.extend({
   },
 
   methods: {
-    async onSearch() {
+    onSearch() {
       this.$emit('search', this.query);
       this.query = '';
     },
@@ -84,6 +88,10 @@ export default Vue.extend({
     selectAutocompleteItem(item: Autocomplete) {
       this.$emit('search', item.name);
       this.query = '';
+    },
+
+    onError(error: Error) {
+      this.$emit('error', error);
     }
   }
 });
