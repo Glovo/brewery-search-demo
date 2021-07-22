@@ -17,5 +17,5 @@ describe('BrewerySearchInput', () => {
     it('should emit the `search` event with current search input when the form is submitted', () => {});
 
     it('should clear the search input when the form is submitted', () => {});
-  })
+  });
 });
